@@ -1,0 +1,113 @@
+        DELIMITER //
+
+        CREATE TRIGGER appointment_no_overlap_insert
+          BEFORE INSERT ON Appointment
+          FOR EACH ROW
+        BEGIN
+          IF EXISTS 
+            (SELECT * FROM Appointment
+            JOIN Service
+              ON servicetype = serviceID
+            WHERE (Customer_customerID = NEW.Customer_customerID OR Employee_employeeID = NEW.Employee_employeeID)
+            AND (starttime <= NEW.starttime AND ADDTIME(starttime, serviceduration) >= NEW.starttime
+            OR starttime >= NEW.starttime AND starttime <= ADDTIME(NEW.starttime, serviceduration)))
+            THEN
+              signal sqlstate '45000' SET MESSAGE_TEXT = 'Time overlaps with existing appointments';
+          END IF;
+        END;
+        
+        //
+		
+        DELIMITER //
+
+        CREATE TRIGGER appointment_no_overlap_update
+          BEFORE UPDATE ON Appointment
+          FOR EACH ROW
+        BEGIN
+          IF EXISTS 
+            (SELECT * FROM Appointment
+            JOIN Service
+              ON servicetype = serviceID
+            WHERE (Customer_customerID = NEW.Customer_customerID OR Employee_employeeID = NEW.Employee_employeeID)
+            AND (starttime <= NEW.starttime AND ADDTIME(starttime, serviceduration) >= NEW.starttime
+            OR starttime >= NEW.starttime AND starttime <= ADDTIME(NEW.starttime, serviceduration)))
+            THEN
+              signal sqlstate '45000' SET MESSAGE_TEXT = 'Time overlaps with existing appointments';
+          END IF;
+        END;
+        
+        //
+
+        DELIMITER //
+
+        CREATE TRIGGER check_if_stock_insert
+          BEFORE INSERT ON Purchase
+          FOR EACH ROW
+        BEGIN
+          IF EXISTS
+            (SELECT quantity
+            FROM Purchase
+            JOIN Product
+              ON NEW.Product_productID = productID
+            WHERE NEW.quantity > stock)
+              THEN
+          SIGNAL sqlstate '45000' SET MESSAGE_TEXT = 'The stock is lower than amount';
+            ELSE
+              UPDATE Product
+                SET stock = stock - NEW.quantity
+                WHERE productID = NEW.Product_productID;
+          END IF;
+        END;
+        
+        //
+		
+        DELIMITER //
+
+        CREATE TRIGGER check_if_stock_update
+          BEFORE UPDATE ON Purchase
+          FOR EACH ROW
+        BEGIN
+          IF EXISTS
+            (SELECT quantity
+            FROM Purchase
+            JOIN Product
+              ON NEW.Product_productID = productID
+            WHERE NEW.quantity > stock)
+              THEN
+          SIGNAL sqlstate '45000' SET MESSAGE_TEXT = 'The stock is lower than amount';
+            ELSE
+              UPDATE Product
+                SET stock = stock - NEW.quantity
+                WHERE productID = NEW.Product_productID;
+          END IF;
+        END;
+        
+        //
+		
+        DELIMITER //
+
+        CREATE TRIGGER appointment_past_currentdate_insert
+          BEFORE INSERT ON Appointment
+          FOR EACH ROW
+        BEGIN
+          IF (NEW.starttime < SYSDATE())
+          THEN
+            signal sqlstate '45000' SET MESSAGE_TEXT = 'Time of the appointment has already passed';
+          END IF;
+        END;
+        
+        //
+		
+        DELIMITER //
+
+        CREATE TRIGGER appointment_past_currentdate_update
+          BEFORE UPDATE ON Appointment
+          FOR EACH ROW
+        BEGIN
+          IF (NEW.starttime < SYSDATE())
+          THEN
+            signal sqlstate '45000' SET MESSAGE_TEXT = 'Time of the appointment has already passed';
+          END IF;
+        END;
+        
+        //

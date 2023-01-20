@@ -1,0 +1,9 @@
+        CREATE VIEW purchase_total_price AS
+        SELECT purchaseID, Customer_customerID AS customerID, CONCAT(firstname, ' ', lastname) AS customer,
+            Product_productID AS productID, productname, quantity, 
+            sellingprice, quantity * sellingprice AS totalprice
+        FROM Purchase
+        INNER JOIN Product
+          ON Product_productID = productID
+        INNER JOIN Customer
+          ON Customer_customerID = customerID;

@@ -1,0 +1,10 @@
+        DELIMITER //
+
+        CREATE PROCEDURE check_stock()
+        BEGIN
+          SELECT *
+          FROM Product
+          WHERE stock < 15;
+        END;
+        
+        //

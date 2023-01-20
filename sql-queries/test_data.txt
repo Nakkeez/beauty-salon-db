@@ -1,0 +1,130 @@
+INSERT INTO Customer (firstname, lastname, phone, email)
+VALUES
+    ('Mirka', 'Lestinen', '0453217785', 'mirkkuu@outlook.com'),
+    ('Pekka', 'Kirjavainen', '0507833148', NULL),
+    ('Marko', 'Pälvi', '0509629577', 'marko.palvi@outlook.com'),
+    ('Liisa', 'Laulavainen', '0442955531', 'lissulaivavainen@gmail.com'),
+    ('Kaja', 'Konttinen', '0453159972', 'kaja.konttinen92@luukku.com'),
+    ('Kaisa', 'Helminen', '0458843215', 'kaisuli.helminen@gmail.com'),
+    ('Vertti', 'Ovaskainen', NULL, 'kikkakakkonen@gmail.com'),
+    ('Laura', 'Ryhtinen', '0456969421', 'laura.ryhtinen@outlook.com'),
+    ('Unto', 'Ruotsalainen', '0508263779', 'unto.ruotsalainen@windowslive.com'),
+    ('Merja', 'Marjanen', '0509873843', 'marjailija_73@gmail.com'),
+    ('Vilma', 'Haavisto', '0444626714', 'vilma_haavisto@outlook.com'),
+    ('Kaisa', 'Kanto', '0440102305', 'kaisa.kantooo@gmail.com'),
+    ('Tiia', 'Tervanen', '0455037625', 'tirkku@outlook.com'),
+    ('Ari', 'Arohonka', '0507410034', 'artsa.arohonka@gmail.com'),
+    ('Mikko', 'Linkola', NULL, 'mikkomallikas@luukku.com'),
+    ('Pekka', 'Aario', '0447657032', 'aario.kutsuu@gmail.com'),
+    ('Lilli', 'Hiekkala', '0502834759', 'lilli.hiekkala102@gmail.com'),
+    ('Orvokki', 'Soini', '0448087351', 'orvokki.soini@outlook.com'),
+    ('Elina', 'Karikoski', '0509182503', 'e.karikoski@gmail.com'),
+    ('Aino', 'Ilvessalo', '0505578801', 'aino.ilkku@outlook.com');
+
+
+
+INSERT INTO Employee (firstname, lastname, phone, email, street, zipcode, city, payrate)
+VALUES
+    ('Marja', 'Tukkava', '0507722822', 'marja.tukkava@gmail.com', 'Keskuskatu 1 B 4', '44150', 'Äänekoski', '11.50'),
+    ('Tino', 'Varvio', '0447102039', 'tinozki@outlook.com', 'Ratakuja 7 A 7', '40200', 'Jyväskylä', '12.50'),
+    ('Venla', 'Tuisku', '0501357901', 'venla.tuiskuu@gmail.com', 'Terveyskatu 3 as 2', '44100', 'Äänekoski', '12.76'),
+    ('Kirsikka', 'Oravanmäki', '0406758410', 'oravanmäki_kirsikka@gmail.com', 'Piippulanmäki', '40270', 'Jyväskylä', '11.57'),
+    ('Hilma', 'Hipsukka', '0404459923', 'hilma7777@luukku.com', 'Kauppakatu 1 C 6', '44100', 'Äänekoski', '13.10');
+
+
+
+INSERT INTO Service (servicename, serviceprice, serviceduration)
+VALUES
+    ('Naisten hiusten leikkaus', '45.00', '00:45:00'),
+    ('Miesten hiusten leikkaus', '30.00', '00:30:00'),
+    ('Hiusten värjäys', '73.00', '01:15:00'),
+    ('Vaalennus tai värin korjaus', '60.00', '01:00:00'),
+    ('Permanentti', '97.00', '01:40:00'),
+    ('Hiusten hoitokäsittelyt', '30.00', '00:30:00'),
+    ('Sinettipidennykset', '200.00', '03:00:00'),
+    ('Teippipidennykset', '200.00', '03:00:00'),
+    ('Ripsien ja kulmien värjäys', '30.00', '00:30:00'),
+    ('Kulmien laminointi ja värjäys', '60.00', '01:00:00'),
+    ('Ripsien kestotaivutus', '80.00', '01:20:00'),
+    ('Kulmien muotoilu ja värjäys', '15.00', '00:15:00'),
+    ('Uudet rakennekynnet', '78.00', '01:30:00'),
+    ('Rakennekynsien huolto', '69.00', '01:20:00'),
+    ('Geelilakkaus', '58.00', '01:00:00');
+
+
+
+INSERT INTO Appointment (Customer_customerID, Employee_employeeID, servicetype, starttime)
+VALUES
+    (1, 1, 1, '2022-04-19 12:30:00'),
+    (2, 2, 1, '2022-05-21 12:30:00'),
+    (3, 1, 1, '2022-05-21 12:30:00'),
+    (4, 2, 1, '2022-05-21 12:30:00'),
+    (5, 2, 1, '2022-05-21 12:30:00'),
+    (6, 2, 1, '2022-05-21 12:30:00'),
+    (7, 2, 1, '2022-05-21 12:30:00'),
+    (8, 2, 1, '2022-05-21 12:30:00'),
+    (9, 2, 1, '2022-05-21 12:30:00'),
+    (10, 2, 1, '2022-05-21 12:30:00'),
+    (11, 2, 1, '2022-05-21 12:30:00'),
+    (1, 2, 1, '2022-05-21 12:30:00'),
+    (12, 2, 1, '2022-05-21 12:30:00'),
+    (5, 2, 1, '2022-05-21 12:30:00'),
+    (13, 2, 1, '2022-05-21 12:30:00'),
+    (14, 2, 1, '2022-05-21 12:30:00'),
+    (15, 2, 1, '2022-05-21 12:30:00'),
+    (16, 2, 1, '2022-05-21 12:30:00'),
+    (17, 2, 1, '2022-05-21 12:30:00'),
+    (18, 2, 1, '2022-05-21 12:30:00'),
+    (2, 2, 1, '2022-05-21 12:30:00'),
+    (19, 2, 1, '2022-05-21 12:30:00'),
+    (20, 2, 1, '2022-05-21 12:30:00');
+
+
+
+INSERT INTO Productgroup (groupname, groupdescription)
+VALUES
+	('Värjätyille hiuksille', 'Shampoot, hoitoaineet ja muut hiustuotteet, jotka sopivat värjätyille hiuksille.'),
+	('Blondeille tuotteille', 'Shampoot, hoitoaineet ja muut hiustuotteet, jotka sopivat luonnostaan vaaleille tai vaalennetuille hiuksille.'),
+	('Naamiot ja hoitotuotteet', 'Naamiot ja hoitotuotteet ravitsevat sekä hoitavat hiuksia.'),
+	('Miesten tuotteet', 'Miehille tarkoitetut shampoot ja hiusmuotoilutuotteet.'),
+	('Kuivashampoot ja hiuspuuterit', 'Tuovat rakennetta ja tekstuuria.'),
+	('Kynsien kotihoitotuotteet', 'Kotihoitotuotteet geelikynsille.'),
+    	('Hiuskorut ja -koristeet', 'Hiusten koristeluun ja tyylittelyyn tarkoitetut tuotteet.');
+
+
+INSERT INTO Product (productID, productname, manufacturer, stock, productprice, productdescription, category)
+VALUES
+	('DS Color Shampoo', 'Sim Sensitive', '30', '6.55', 'Shampoo värjätyille hiuksille. Pidentää värin kestoa.', '1'),
+	('DS Color Conditioner', 'Sim Sensitive', '25', '6.55', 'Hoitoaine värjätyille hiuksille. Pidentää värin kestoa.', '1'),
+	('DS Blond Shampoo', 'Sim Sensitive', '30', '6.55', 'Sävyttävä shampoo luonnostaan vaaleille sekä vaalennetuille hiuksille.', '2'),
+	('DS Blond Conditioner', 'Sim Sensitive', '30', '6.55', 'Sävyttävä hoitoaine luonnostaan vaaleille sekä vaalennetuille hiuksille.', '2'),
+	('DS Hair Serum', 'Sim Sensitive', '30', '7.65', 'Hajusteeton hoitoseerumi kuiville ja vaurioituneille hiuksille.', '3'),
+   	('DS Dry Shampoo', 'Sim Sensitive', '25', '7.10', 'Kuivashampoo. Sitoo epäpuhtauksia ja poistaa rasvaisuuden tuntua tehden hiukset kuohkeiksi.', '5'),
+   	('DS Intensive Moisture Mask 250ml', 'Sim Sensitive', '30', '9.73', 'Tehohoito kuiville ja vaurioituneille hiuksille. Ravitsee ja kosteuttaa intensiivisesti.', '3'),
+    	('DS Leave-in Conditioner 200ml', 'Sim Sensitive', '30', '8.33', 'Tehokkaasti kosteuttava hoitosuihku kaikille hiustyypeille.', '3'),
+	('SensiDO Simplex Bonder Re-Bonding Shampoo 250ml', 'Sim Sensitive', '15', '10.90', 'Rakennepaikkaava shampoo. Rakennepaikkaa, kosteuttaa, suojaa sekä vahvistaa vaurioituneita hiuksia.', '2'),
+	('SensiDO Simplex Bonder Conditioning Mask 250ml', 'Sim Sensitive', '15', '10.90', 'Rakennepaikkaava hoitoaine. Rakennepaikkaa, kosteuttaa, suojaa sekä vahvistaa vaurioituneita hiuksia.', '2'),
+    	('Hairways Wash & Shave 3 in 1 100ml', 'Hairways', '25', '3.95', 'Kosteuttava shampoo, raikas suihkusaippua ja parranajogeeli kaikki yhdessä tuotteessa.', '4'),
+    	('Hairways Hair Styling Cream 2 in 1 100ml', 'Hairways', '30', '3.95', '2 in 1 muotoiluvoide. Monipuolinen, antaa hiuksiin rakennetta sekä vahvaa, joustavaa tukea, jonka ansiosta hiukset ovat uudelleen muotoiltavissa.', '4'),
+    	('Hairways Hair Wax 50ml', 'Hairways', '20', '3.95', 'Hiusvaha. Lisää rakennetta, pitoa sekä kiiltoa hiuksiin. Hiusvahassa raikas piparmintun tuoksu.', '4'),
+    	('Moyra Cuticle Rasperry Pink 15ml', 'Kinnunen Oy', '30', '2.40', 'Kynsinauhaöljy rakennekynsien, manikyyrin tai geelilakkauksen viimeistelyyn. Kosteuttaa ja hoitaa kuivia kynsinauhoja.', '6'),
+    	('Moyra Cuticle Red Apple 15ml', 'Kinnunen Oy', '30', '2.40', 'Kynsinauhaöljy rakennekynsien, manikyyrin tai geelilakkauksen viimeistelyyn. Kosteuttaa ja hoitaa kuivia kynsinauhoja.', '6'),
+    	('Hair Styling Accessory Gold', 'Stradivarius', '15', '3.99', 'Kultainen hiusklipsi.', '7'),
+    	('Hair Accessory 3 Pack Gold/White', 'Sweet Deluxe', '15', '9.00', 'Kultainen ja valkoinen hiuspinni.', '7'),
+    	('FGDIOLA Hairband Gold ', 'Fire & Glory', '15', '5.00', 'Kultainen hiuspanta.', '7');
+
+
+INSERT INTO Purchase (Customer_customerID, Product_productID, quantity)
+VALUES
+    (2, 11, 1),
+    (2, 13, 1),
+    (4, 3, 1),
+    (5, 17, 2),
+    (5, 8, 1),
+    (11, 5, 1),
+    (12, 6, 2),
+    (14, 13, 2),
+    (17, 18, 3),
+    (19, 9, 1),
+    (19, 10, 1),
+    (20, 1, 1);
